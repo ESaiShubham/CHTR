@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables */
+:root {
+  --primary-50: #faf5ff;
+  --primary-100: #f3e8ff;
+  --primary-200: #e9d5ff;
+  --primary-300: #d8b4fe;
+  --primary-400: #c084fc;
+  --primary-500: #a855f7;
+  --primary-600: #9333ea;
+  --primary-700: #7c3aed;
+  --primary-800: #6b21a8;
+  --primary-900: #581c87;
+  
+  --lavender-50: #fdf4ff;
+  --lavender-100: #fae8ff;
+  --lavender-200: #f5d0fe;
+  --lavender-300: #f0abfc;
+  --lavender-400: #e879f9;
+  --lavender-500: #d946ef;
+  --lavender-600: #c026d3;
+  --lavender-700: #a21caf;
+  --lavender-800: #86198f;
+  --lavender-900: #701a75;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary-500), var(--lavender-500));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--primary-600), var(--lavender-600));
+}
+
+/* Typography */
+.font-display {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-600), var(--lavender-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary-600 to-lavender-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 ease-out;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-700), var(--lavender-700));
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center px-6 py-3 border-2 border-primary-600 text-primary-600 font-semibold rounded-xl hover:bg-primary-600 hover:text-white transform hover:-translate-y-0.5 transition-all duration-300 ease-out;
+}
+
+.btn-white {
+  @apply inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 ease-out;
+}
+
+.btn-small {
+  @apply px-4 py-2 text-sm;
+}
+
+/* Cards */
+.card {
+  @apply bg-white rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300 ease-out transform hover:-translate-y-1;
+}
+
+.card-hover {
+  @apply hover:shadow-large hover:scale-105;
+}
+
+/* Shadows */
+.shadow-soft {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-medium {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-large {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Gradients */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--primary-500), var(--lavender-500));
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, var(--primary-50), var(--lavender-50));
+}
+
+.bg-gradient-hero {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(217, 70, 239, 0.1));
+}
+
+/* Form Elements */
+.input-field {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 ease-out;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
+}
+
+.form-group {
+  @apply mb-6;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid var(--primary-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hero Pattern */
+.hero-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(217, 70, 239, 0.1) 0%, transparent 50%);
+  background-size: 100% 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+  
+  .btn-primary, .btn-outline, .btn-white {
+    @apply px-4 py-2.5 text-sm;
+  }
+  
+  .card {
+    @apply rounded-xl;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-gradient {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Place Card Specific Styles */
+.place-card {
+  @apply relative overflow-hidden rounded-2xl bg-white shadow-soft hover:shadow-large transition-all duration-500 ease-out transform hover:-translate-y-2;
+}
+
+.place-card-image {
+  @apply w-full h-48 object-cover transition-transform duration-500 ease-out;
+}
+
+.place-card:hover .place-card-image {
+  transform: scale(1.05);
+}
+
+.place-card-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent;
+}
+
+.place-card-content {
+  @apply absolute bottom-0 left-0 right-0 p-6 text-white;
+}
+
+/* Navigation Styles */
+.nav-link {
+  @apply relative px-4 py-2 text-gray-700 hover:text-primary-600 font-medium transition-colors duration-300 ease-out;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-lavender-500 transform -translate-x-1/2 transition-all duration-300 ease-out;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
+
+/* Footer Styles */
+.footer-link {
+  @apply text-gray-600 hover:text-primary-600 transition-colors duration-300 ease-out;
+}
+
+.footer-section {
+  @apply space-y-4;
+}
+
+.footer-title {
+  @apply text-lg font-semibold text-gray-900 mb-4;
+}
+
+/* Contact Form Styles */
+.contact-form {
+  @apply space-y-6;
+}
+
+.contact-form .form-group {
+  @apply mb-0;
+}
+
+/* Rating Stars */
+.rating-stars {
+  @apply flex items-center space-x-1;
+}
+
+.star {
+  @apply text-yellow-400;
+}
+
+.star-empty {
+  @apply text-gray-300;
+}
+
+/* Category Badges */
+.category-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.category-waterfall {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.category-wildlife {
+  @apply bg-green-100 text-green-800;
+}
+
+.category-temple {
+  @apply bg-orange-100 text-orange-800;
+}
+
+.category-hill_station {
+  @apply bg-purple-100 text-purple-800;
+}
+
+.category-heritage {
+  @apply bg-red-100 text-red-800;
+}
+
+/* Search Bar */
+.search-container {
+  @apply relative max-w-md mx-auto;
+}
+
+.search-input {
+  @apply w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 ease-out;
+}
+
+.search-icon {
+  @apply absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  @apply fixed inset-0 bg-white z-50 transform transition-transform duration-300 ease-out;
+}
+
+.mobile-menu.hidden {
+  transform: translateX(-100%);
+}
+
+.mobile-menu.visible {
+  transform: translateX(0);
+}
+
+/* Backdrop */
+.backdrop {
+  @apply fixed inset-0 bg-black/50 z-40;
+}
+
+/* Utility Classes */
+.text-balance {
+  text-wrap: balance;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    @apply border-2 border-primary-600;
+  }
+  
+  .card {
+    @apply border border-gray-300;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+} 
